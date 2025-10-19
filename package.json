@@ -1,0 +1,19 @@
+{
+  "name": "ondemand_container_spinner(topic)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "amqplib": "^0.10.9",
+    "cors": "^2.8.5",
+    "dockerode": "^4.0.9",
+    "express": "^5.1.0"
+  }
+}
