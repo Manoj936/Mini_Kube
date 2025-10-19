@@ -26,3 +26,30 @@
     RabbitMQ – Message queue for orchestrating container operations
 
     SSE (Server-Sent Events) – Real-time streaming updates to clients
+
+
+- **Architecture**
+    Architecture
+
+  API Endpoint – Accepts requests like:
+
+  {
+    "imageName": "ce-node",
+    "requiredCluster": 3,
+    "containerPort": 3400
+  }
+
+
+  Producer – Publishes this message to a RabbitMQ exchange (cluster.config).
+
+  Consumer – Listens to cluster.config exchange, invokes the Docker helper, which:
+
+  Checks current running containers
+
+  Scales up/down based on the requested cluster size
+
+  Publishes real-time updates to cluster.updates queue
+
+  DLQ Handling – Any failed container creation or deletion gets sent to a Dead Letter Queue (docker_dlq_queue) for monitoring and retries.
+
+  Real-Time Monitoring – Clients can connect via SSE to receive updates as containers start/stop.
