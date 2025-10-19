@@ -28,8 +28,7 @@
     SSE (Server-Sent Events) – Real-time streaming updates to clients
 
 
-- **Architecture**
-    Architecture
+- **Architecture🛠️**
 
   API Endpoint – Accepts requests like:
 
